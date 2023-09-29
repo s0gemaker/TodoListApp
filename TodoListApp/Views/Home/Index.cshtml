@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TodoListApp.Models.TodoItem>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Todo List</title>
+</head>
+<body>
+    <h1>Simple Todo List</h1>
+
+    <!-- Todo Form -->
+    <form id="todoForm" method="post" asp-action="Create">
+        <input type="text" id="todoItem" name="Description" placeholder="New todo item" />
+        <button type="submit">Add</button>
+    </form>
+
+    <!-- Todo List -->
+    <ul id="todoList">
+        @foreach (var item in Model)
+        {
+            <li>
+                @item.Description
+                <!-- Adding a Delete link for each todo item -->
+                <a href="@Url.Action("Delete", "Home", new { id = item.Id })">Delete</a>
+                |
+                <!-- Adding an Update link for each todo item -->
+                <a href="@Url.Action("Update", "Home", new { id = item.Id })">Update</a>
+            </li>
+        }
+    </ul>
+</body>
+</html>

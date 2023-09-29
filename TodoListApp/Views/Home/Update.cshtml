@@ -1,0 +1,9 @@
+﻿@model TodoListApp.Models.TodoItem
+
+<h2>Update Todo Item</h2>
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+    <label for="Description">Description:</label>
+    <input type="text" asp-for="Description" />
+    <button type="submit">Update</button>
+</form>
